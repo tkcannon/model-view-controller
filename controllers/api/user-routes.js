@@ -1,6 +1,5 @@
-router = require('express').Router();
+const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
-const router = require('./comment-routes');
 
 // get all users
 router.get('/', (req, res) => {
@@ -27,7 +26,7 @@ router.get('/:id', (req, res) => {
             },
             {
                 model: Comment,
-                attributes: ['id', 'text', 'create_at'],
+                attributes: ['id', 'text', 'created_at'],
                 include: {
                     model: Post,
                     attributes: ['title']
