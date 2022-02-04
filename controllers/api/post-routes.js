@@ -8,6 +8,14 @@ router.get('/', (req, res) => {
         attributes: ['id', 'title', 'text', 'created_at'],
         include: [
             {
+                model: Comment,
+                attributes: ['id', 'text', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
                 model: User,
                 attributes: ['username']
             }
@@ -27,10 +35,20 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         },
         attributes: ['id', 'title', 'text', 'created_at'],
-        include: {
-            model: User,
-            attributes: ['username']
-        }
+        include: [
+            {
+                model: Comment,
+                attributes: ['id', 'text', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
         .then(postData => {
             if (!postData) {
