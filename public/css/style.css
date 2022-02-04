@@ -1,0 +1,117 @@
+:root {
+  --primary: #14213d;
+  --secondary: #fca311;
+  --tertiary: #e5e5e5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100%;
+  background-color: var(--tertiary);
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  margin: 4%;
+  padding: 2%;
+  border-bottom: solid 1px var(--primary);
+}
+
+nav {
+  margin: auto 0;
+  font-size: 1.25em;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  margin: 1vw;
+}
+
+label {
+  font-size: 1.25em;
+}
+
+textarea,
+input {
+  padding: 1%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 1vw;
+  border-radius: 5px;
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary);
+  color: var(--secondary);
+  padding: 2%;
+}
+
+.app-title {
+  font-size: 2.5em;
+  padding: 5px;
+  background: var(--primary);
+  border: 1px solid var(--secondary);
+  border-radius: 5px;
+  box-shadow: 5px 5px var(--secondary);
+}
+
+#logout {
+  color: var(--secondary);
+  font-size: 1.25em;
+  font-weight: bold;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.post {
+  margin: 2% 10%;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+}
+
+.title {
+  margin: 0;
+  padding: 1%;
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+.post-txt {
+  padding: 1%;
+  font-size: 1.25em;
+}
+
+.post-controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+.edit-link {
+  justify-self: end;
+}
