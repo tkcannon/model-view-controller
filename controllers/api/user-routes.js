@@ -1,5 +1,6 @@
 router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+const router = require('./comment-routes');
 
 // get all users
 router.get('/', (req, res) => {
@@ -54,10 +55,14 @@ router.post('/', (req, res) => {
         password: req.body.password
     })
         .then(userData => {
-            // create session
+            // login user on creation
+            req.session.save(() => {
+                req.session.user_id = userData.id;
+                req.session.username = userData.username;
+                req.session.loggedIn = true;
 
-
-            res.json(userData);
+                res.json(userData);
+            })
         })
         .catch(err => {
             console.log(err);
@@ -65,9 +70,46 @@ router.post('/', (req, res) => {
         })
 })
 
-// create login post
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    })
+        .then(userData => {
+            if (!userData) {
+                res.status(400).json({ message: 'No user found with requested id' });
+                return;
+            }
+
+            const validPassword = userData.checkPassword(req.body.password);
+
+            if (!validPassword) {
+                res.status(400).json({ message: 'Password is incorrect!' });
+                return;
+            }
+
+            req.session.save(() => {
+                req.session.user_id = userData.id;
+                req.session.username = userData.username;
+                req.session.loggedIn = true;
+
+                res.json({ user: userData, message: 'You are now logged in!' });
+            });
+        });
+});
 
 //create logout post
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    }
+    else {
+        res.status(404).end();
+    }
+})
 
 router.put('/:id', (req, res) => {
     User.update(req.body, {
