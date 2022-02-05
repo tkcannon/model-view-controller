@@ -69,7 +69,7 @@ router.post('/', withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
         text: req.body.text,
-        // user_id:
+        user_id: req.session.user_id
     })
         .then(postData => res.json(postData))
         .catch(err => {
@@ -104,7 +104,7 @@ router.put('/:id', withAuth, (req, res) => {
 })
 
 //delete post
-router.delete('/id', withAuth, (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id

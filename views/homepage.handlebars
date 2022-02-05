@@ -1,9 +1,11 @@
 <section>
     <ol>
         {{#each posts as |post|}}
-        <li>
-            {{>post-info post}}
-        </li>
+        <a href="/post/{{post.id}}">
+            <li>
+                {{>post-info post}}
+            </li>
+        </a>
         {{/each}}
     </ol>
 </section>
