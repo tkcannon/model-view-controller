@@ -1,15 +1,13 @@
 <section>
-    <h2>New Post</h2>
+    <h2>Create New Post</h2>
     <form class="create-post-form">
-        <div>
-            <label for="post-title">Title:</label>
-            <input type="text" id="post-title" name="post-title" />
-        </div>
-        <div>
-            <label for="post-text">Text</label>
-            <input type="text" id="post-text" name="post-text" />
-        </div>
-        <div>
+        <div class="post">
+            <div class="post-title">
+                <input type="text" id="post-title" name="post-title" placeholder="Title" />
+            </div>
+            <div class="post-body">
+                <input type="text" id="post-text" name="post-text" placeholder="Text" />
+            </div>
             <button type="submit">Post</button>
         </div>
     </form>

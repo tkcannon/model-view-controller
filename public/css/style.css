@@ -17,35 +17,46 @@ body {
 }
 
 section {
-  margin: 4%;
-  padding: 2%;
+  margin: 0 30vw;
   border-bottom: solid 1px var(--primary);
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0;
 }
 
 nav {
   margin: auto 0;
-  font-size: 1.25em;
+}
+
+form {
+  margin: 2vh 0;
 }
 
 form > div {
   display: flex;
   flex-direction: column;
-  margin: 1vw;
+  margin: 1vw 0;
 }
 
-label {
-  font-size: 1.25em;
+form button {
+  align-self: center;
 }
 
 textarea,
 input {
   padding: 1%;
+  margin: 1% 0;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--primary);
 }
 
 button {
-  padding: 1vw;
+  font-size: 1.25em;
+  font-weight: bold;
+  max-width: 10vw;
+  padding: .5vw;
   border-radius: 5px;
   color: var(--secondary);
   background-color: var(--primary);
@@ -59,20 +70,34 @@ ol {
 
 a {
   text-decoration: none;
-  color: var(--secondary);
-  font-weight: bold;
+  color: var(--primary);
+}
+
+p {
+  margin: 0;
 }
 
 .hero {
   display: flex;
   justify-content: space-between;
-  background-color: var(--primary);
   color: var(--secondary);
-  padding: 2%;
+  background-color: var(--primary);
+  padding: 2% 4%;
+}
+
+.hero button {
+  padding: 0;
+}
+
+.hero a {
+  margin: 0 1vw;
+  font-size: 1.25em;
+  font-weight: bold;
+  color: var(--secondary);
 }
 
 .app-title {
-  font-size: 2.5em;
+  color: var(--secondary);
   padding: 5px;
   background: var(--primary);
   border: 1px solid var(--secondary);
@@ -81,37 +106,45 @@ a {
 }
 
 #logout {
-  color: var(--secondary);
   font-size: 1.25em;
   font-weight: bold;
+  margin: 0 1vw;
   background: none;
   border: 0;
   cursor: pointer;
 }
 
 .post {
-  margin: 2% 10%;
+  margin: 2% 0;
   border: 1px solid var(--primary);
   border-radius: 5px;
 }
 
-.title {
+.post-title {
   margin: 0;
-  padding: 1%;
+  padding: 1vh 1vw;
   background: var(--primary);
   color: var(--secondary);
 }
 
-.post-txt {
-  padding: 1%;
+.post h3 {
+  margin: 0;
   font-size: 1.25em;
 }
 
-.post-controls {
-  display: flex;
-  justify-content: space-around;
+.post-body {
+  padding: 0 1vw;
 }
 
-.edit-link {
-  justify-self: end;
+.post-text {
+  margin: 2vh 0;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  text-align: end;
+  color: grey;
+  padding: 0.5vh 0;
+  border-top: 1px solid var(--primary);
 }
