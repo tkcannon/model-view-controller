@@ -20,7 +20,8 @@ router.get('/', (req, res) => {
                 model: User,
                 attributes: ['username']
             }
-        ]
+        ],
+        order: ['created_at', 'DESC']
     })
         .then(postData => res.json(postData))
         .catch(err => {
@@ -82,7 +83,7 @@ router.post('/', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
-            title: req.body.title
+            text: req.body.text
         },
         {
             where: {

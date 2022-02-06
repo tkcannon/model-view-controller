@@ -7,11 +7,11 @@
             </div>
             <div class="post-body">
                 <div class="post-text">
-                    <input name="post-text" type="text" value="{{post.text}}" />
+                    <input class="w-100" name="post-text" type="text" value="{{post.text}}" />
                 </div>
                 <div class="post-controls">
-                    <button type="submit">Save Post</button>
-                    <button type="button" class="delete-post-btn">Delete Post</button>
+                    <button class="w-100" type="submit">Save Post</button>
+                    <button class="w-100 delete-post-btn" type="button">Delete Post</button>
                 </div>
                 <div class="meta">
                     <p>{{post.comments.length}} {{format_plural "comment" post.comments.length}}</p>
@@ -23,18 +23,8 @@
 </section>
 
 <section>
-    <form class="comment-form">
-        <div>
-            <textarea name="comment-body"></textarea>
-        </div>
-        <div>
-            <button type="submit">Add Comment</button>
-        </div>
-    </form>
-
     {{>comments post.comments}}
 </section>
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>

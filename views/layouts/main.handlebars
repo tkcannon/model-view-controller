@@ -25,14 +25,17 @@
             <a href="/login">login</a>
             |
             <a href="/sign-up">sign-up</a>
-            {{/if}} 
+            {{/if}}
         </nav>
     </header>
+    
     <main>
         {{{body}}}
     </main>
 
+    {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
