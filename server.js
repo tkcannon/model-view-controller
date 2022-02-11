@@ -10,7 +10,7 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-  secret: process.env.JAWSDB_URL,
+  secret: process.env.JAWSDB_URL ? process.env.JAWSDB_URL : process.env.SECRET,
   cookie: {
     maxAge: 300000
   },
